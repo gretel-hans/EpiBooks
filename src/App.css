@@ -87,3 +87,8 @@ h1{
   top: 0;
   visibility: hidden;
 }
+
+.areaCommento{
+  width: 15em;
+  margin: 0 auto;
+}
