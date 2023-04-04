@@ -1,24 +1,46 @@
-import { Component } from "react";
 import SingleBook from "./SingleBook";
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import { Row } from "react-bootstrap";
+import CommentArea from "./CommentArea";
+import { useState} from "react";
 
 
-class BookList extends Component {
+const BookList =(props)=> {
 
-    state = {
+    /*state = {
         search: {
             bookSearched: ''
+        },
+        selected:{
+            selezionato:false,
+            idLibro:''
         }
-    }
-    mostraNome(){
-        console.log(1,2,3,4)
-    }
-             
+    }*/
+
+    const[state,setState]=useState({
+        search: {
+            bookSearched: ''
+        },
+        selected:{
+            selezionato:false,
+            idLibro:''
+        }
+    })
+
+    const cambioLibro=(idNuovoLibro)=>{
+        setState({
+            selected:{
+               selezionato:!state.selected.selezionato,
+                idLibro:idNuovoLibro,
+            },search:{
+                ...state.search
+            }
+        })
+    }         
                  
 
-render() {
+
     return (
         <>
 
@@ -31,13 +53,13 @@ render() {
                             placeholder="Search"
                             className="me-2"
                             aria-label="Search"
-                            value={this.state.search.bookSearched}
+                            value={state.search.bookSearched}
                             onChange={(e) => {
-                                this.setState({
+                                setState({
+                                    ...state,
                                     search: {
                                         bookSearched: e.target.value
                                     }
-
                                 })
                             }}
                         />
@@ -45,13 +67,20 @@ render() {
                 </Col>
             </Row>
 <Row>
-{
-    this.props.books.filter((book) =>
-        ((book.title).toLowerCase()).includes((this.state.search.bookSearched).toLowerCase()))?.map(libro => (
-            <SingleBook key={libro.asin} singleBook={libro} />
+    
+    <Col xs={12} md={7}>
+    {
+    props.books.filter((book) =>
+        ((book.title).toLowerCase()).includes((state.search.bookSearched).toLowerCase()))?.map(libro => (
+            <SingleBook key={libro.asin} singleBook={libro} cambioLibroSelezionato={cambioLibro}/>
         ))
         
 }
+    </Col>
+
+<Col className='areaCommenti'xs={12} md={5}>
+<CommentArea idBook={state.selected.idLibro}/>
+</Col>
 </Row>
             {
             /*
@@ -66,6 +95,5 @@ render() {
         </>
 
     )
-}
 }
 export default BookList

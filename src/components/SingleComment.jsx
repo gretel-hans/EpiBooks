@@ -11,6 +11,7 @@ const SingleComment =(props)=>{
             .then(response=>{
                 if (response.ok){
                     alert('The comment has been deleted!')
+                    props.incremento(props.contatore+1)
                 }else{
                     alert('ERROR the comment hasn\'t been deleted')
                 }

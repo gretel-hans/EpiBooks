@@ -4,10 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-import { Component } from 'react'
 
-class AllTheBooks extends Component {
-    render() {
+const AllTheBooks =()=> {
         return (
             <>
             <a href="#home"><i className="bi bi-arrow-up-circle-fill"></i></a>
@@ -35,7 +33,6 @@ class AllTheBooks extends Component {
                 </Container>
             </>
         )
-    }
 }
 
 export default AllTheBooks

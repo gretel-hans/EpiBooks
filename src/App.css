@@ -92,3 +92,9 @@ h1{
   width: 15em;
   margin: 0 auto;
 }
+
+.areaCommenti{
+  position: fixed;
+  right: 0px;
+  top: 315px;
+}

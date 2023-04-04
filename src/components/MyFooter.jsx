@@ -1,10 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Component } from 'react';
 
-class MyFooter extends Component {
-    render(){
+const MyFooter =()=> {
+
             return (
         <Navbar className='footer text-light' collapseOnSelect expand="lg" bg="secondary" variant="dark">
             <Container fluid className='justify-content-center'>
@@ -23,7 +22,7 @@ class MyFooter extends Component {
                         </ul>
                     </div>
                     <div>
-                        <i className="bi bi-c-circle"></i> 2023 EpiBooks
+                        <i className="bi bi-c-circle "></i> 2023 EpiBooks
                     </div>
 
 
@@ -32,7 +31,7 @@ class MyFooter extends Component {
             </Container>
         </Navbar>
     );
-    }
+    
 
 }
 
